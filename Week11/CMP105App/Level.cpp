@@ -12,10 +12,6 @@ Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* gs, AudioManager* aud
 
 	enum class GameState { Start, Level };
 
-	switch (gameState.getCurrentState()) {
-	case(State::MENU):menu.handleInput(deltaTime); 
-	menu.update(deltaTime);
-	menu.render(); break;
 
 }
 
@@ -27,7 +23,11 @@ Level::~Level()
 // handle user input
 void Level::handleInput(float dt)
 {
-
+	if (input->isKeyDown(sf::Keyboard::Space))
+	{
+		input->setKeyUp(sf::Keyboard::Space);
+		gameState->setCurrentState(State::LEVEL);
+	}
 }
 
 // Update game objects

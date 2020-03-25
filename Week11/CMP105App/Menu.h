@@ -7,6 +7,9 @@ public:
 	Menu();
 	~Menu();
 
+	void handleInput(float dt) override;
+	void update(float dt) override;
+	void render();
 
 };
 
