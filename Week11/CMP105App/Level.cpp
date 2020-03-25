@@ -9,6 +9,14 @@ Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* gs, AudioManager* aud
 
 	// initialise game objects
 	audio->addMusic("sfx/cantina.ogg", "cantina");
+
+	enum class GameState { Start, Level };
+
+	switch (gameState.getCurrentState()) {
+	case(State::MENU):menu.handleInput(deltaTime); 
+	menu.update(deltaTime);
+	menu.render(); break;
+
 }
 
 Level::~Level()

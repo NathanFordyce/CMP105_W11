@@ -6,6 +6,7 @@
 #include "Framework/GameState.h"
 #include <string>
 #include <iostream>
+#include "Menu.h"
 
 
 class Level{
@@ -27,4 +28,7 @@ private:
 	Input* input;
 	GameState* gameState;
 	AudioManager* audio;
-};
+
+	Menu menu;
+
+	};
