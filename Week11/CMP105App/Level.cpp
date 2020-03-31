@@ -41,6 +41,8 @@ void Level::render()
 {
 	beginDraw();
 
+	menu.render();
+
 	endDraw();
 }
 
