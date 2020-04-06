@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 #include "Menu.h"
+#include "Player.h"
 
 
 class Level{
@@ -29,6 +30,12 @@ private:
 	GameState* gameState;
 	AudioManager* audio;
 
+	sf::Texture pTexture;
+	Player player;
+	
+
 	Menu menu;
 
+	AudioManager audioMgr;
+	
 	};
