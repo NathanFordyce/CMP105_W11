@@ -9,9 +9,7 @@ Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* gs, AudioManager* aud
 
 	// initialise game objects
 	//audio->addMusic("sfx/cantina.ogg", "cantina");
-	audioMgr.addMusic("sfx/Cantina.ogg", "cantina");
-	audioMgr.addSound("sfx/SMB_jump-small.ogg", "jump");
-	audioMgr.addSound("sfx/SMB_1-up.ogg", "up");
+
 
 	pTexture.loadFromFile("gfx/Mushroom.png");
 	player.setTexture(&pTexture);
@@ -19,9 +17,8 @@ Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* gs, AudioManager* aud
 	player.setPosition(100, 100);
 	player.setInput(input);
 
-	enum class GameState { Start, Level };
 
-
+	gameState->setCurrentState(State::MENU);
 }
 
 Level::~Level()
@@ -37,37 +34,28 @@ void Level::handleInput(float dt)
 		input->setKeyUp(sf::Keyboard::Space);
 		gameState->setCurrentState(State::LEVEL);
 	}
+	
 
-	if (input->isKeyDown(sf::Keyboard::Num1))
+
+
+	switch (gameState->getCurrentState())
 	{
-		input->setKeyUp(sf::Keyboard::Num1);
-		audioMgr.playSoundbyName("jump");
-	}
+	case (State::MENU):
+		menu.handleInput(dt);
 
-	if (input->isKeyDown(sf::Keyboard::Num2))
-	{
-		input->setKeyUp(sf::Keyboard::Num2);
-		audioMgr.playSoundbyName("up");
-	}
+	break;
 
-	if (input->isKeyDown(sf::Keyboard::Num3))
-	{
-		input->setKeyUp(sf::Keyboard::Num3);
-		audioMgr.stopAllMusic();
-	}
+	case (State::LEVEL):
+		level1.handleInput(dt);
+		player.handleInput(dt);
 
-	player.handleInput(dt);
+	}
 }
 
 // Update game objects
 void Level::update(float dt)
 {
-	/*
-	if (audioMgr.getMusic()->getStatus() == sf::SoundSource::Stopped)
-	{
-		audioMgr.playMusicbyName("cantina");
-	}
-	*/
+
 
 	player.update(dt);
 }

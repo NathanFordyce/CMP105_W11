@@ -15,9 +15,6 @@ public:
 	float speedX;
 	float speedY;
 
-	//sf::RenderWindow* window;
-
-
 	AudioManager audioMgr;
 
 	//Gravity vectors and variables

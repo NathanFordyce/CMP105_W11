@@ -2,6 +2,7 @@
 Player::Player()
 {
 	audioMgr.addSound("sfx/Glass_Break.ogg", "break");
+	audioMgr.addSound("sfx/SMB_jump-small.ogg", "jump");
 
 	scale = 200.f;
 	gravity = sf::Vector2f(0, 9.8f) * scale;
@@ -19,42 +20,28 @@ void Player::handleInput(float dt)
 	speedX = 0;
 	speedY = 0;
 
-	if (input->isKeyDown(sf::Keyboard::Right))
+	if (input->isKeyDown(sf::Keyboard::D))
 	{
-		std::cout << "test";
 
 		speedX = 200;
 		setVelocity(speedX, speedY);
 		move(getVelocity() * dt);
 	}
-	else if (input->isKeyDown(sf::Keyboard::Left))
+	else if (input->isKeyDown(sf::Keyboard::A))
 	{
 		speedX = -200;
 		setVelocity(speedX, speedY);
 		move(getVelocity() * dt);
 	}
-
-	if (input->isKeyDown(sf::Keyboard::Down))
-	{
-		speedY = 200;
-		setVelocity(speedX, speedY);
-		move(getVelocity() * dt);
-	}
-	else if (input->isKeyDown(sf::Keyboard::Up))
-	{
-		speedY = -200;
-		setVelocity(speedX, speedY);
-		move(getVelocity() * dt);
-	}
 	
 	//Check if already jumping
-	if (input->isKeyDown(sf::Keyboard::Space))
+	if (input->isKeyDown(sf::Keyboard::W))
 	{
-		std::cout << "test";
+		input->setKeyUp(sf::Keyboard::W);
 
 		if (!isJumping)
 		{
-			std::cout << "test";
+			audioMgr.playSoundbyName("jump");
 			stepVelocity = jumpVector;
 			isJumping = true;
 		}
@@ -65,15 +52,7 @@ void Player::handleInput(float dt)
 void Player::update(float dt)
 {
 
-	if ((getPosition().y + 100) > 700)
-	{
-		audioMgr.playSoundbyName("break");
-	}
-	else if ((getPosition().x + 100) > 1200)
-	{
-		audioMgr.playSoundbyName("break");
-	}
-	else if ((getPosition().y) < 0)
+	if ((getPosition().x + 100) > 1200)
 	{
 		audioMgr.playSoundbyName("break");
 	}

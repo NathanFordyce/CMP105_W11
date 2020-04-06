@@ -7,6 +7,7 @@
 #include <string>
 #include <iostream>
 #include "Menu.h"
+#include "Screen.h"
 #include "Player.h"
 
 
@@ -33,9 +34,10 @@ private:
 	sf::Texture pTexture;
 	Player player;
 	
-
 	Menu menu;
+	Screen level1;
 
 	AudioManager audioMgr;
+
 	
 	};

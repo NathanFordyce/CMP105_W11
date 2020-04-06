@@ -1,15 +1,15 @@
 #pragma once
 #include "Framework/GameObject.h"
-#include "Framework/GameState.h"
 #include "Framework/AudioManager.h"
+#include "Framework/GameState.h"
 #include <iostream>
 
-class Menu:
+class Screen :
 	public GameObject
 {
 public:
-	Menu();
-	~Menu();
+	Screen();
+	~Screen();
 
 	void handleInput(float dt) override;
 	void update(float dt) override;
@@ -24,4 +24,3 @@ public:
 private:
 	sf::RenderWindow* window;
 };
-
