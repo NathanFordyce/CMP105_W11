@@ -29,11 +29,7 @@ Level::~Level()
 // handle user input
 void Level::handleInput(float dt)
 {
-	if (input->isKeyDown(sf::Keyboard::Space))
-	{
-		input->setKeyUp(sf::Keyboard::Space);
-		gameState->setCurrentState(State::LEVEL);
-	}
+
 	
 
 
@@ -74,7 +70,7 @@ void Level::render()
 // Begins rendering to the back buffer. Background colour set to light blue.
 void Level::beginDraw()
 {
-	window->clear(sf::Color(100, 149, 237));
+	window->clear(sf::Color(0, 149, 237));
 }
 
 // Ends rendering to the back buffer, and swaps buffer to the screen.

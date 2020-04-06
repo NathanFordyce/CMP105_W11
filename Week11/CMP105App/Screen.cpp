@@ -41,7 +41,11 @@ void Screen::handleInput(float dt)
 
 void Screen::update(float dt)
 {
-
+	if (player.)
+	{
+		input->setKeyUp(sf::Keyboard::Space);
+		gameState->setCurrentState(State::LEVEL);
+	}
 }
 
 void Screen::render()
