@@ -6,12 +6,13 @@
 #include "Framework/GameState.h"
 #include <string>
 #include <iostream>
-#include "Menu.h"
-#include "Screen.h"
+
 #include "Player.h"
+#include "Menu.h"
+#include "Game.h"
+#include "Pause.h"
 
-
-class Level{
+class Level {
 public:
 	Level(sf::RenderWindow* hwnd, Input* in, GameState* gs, AudioManager* aud);
 	~Level();
@@ -31,13 +32,10 @@ private:
 	GameState* gameState;
 	AudioManager* audio;
 
-	sf::Texture pTexture;
 	Player player;
-	
+	sf::Texture pTexture;
+
 	Menu menu;
-	Screen level1;
-
-	AudioManager audioMgr;
-
-	
-	};
+	Game game;
+	Pause pause;
+};

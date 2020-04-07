@@ -1,17 +1,19 @@
 #pragma once
 #include "Framework/GameObject.h"
-#include <iostream>
-class Menu : public GameObject
+#include "Framework/AudioManager.h"
+#include "Player.h"
+
+class Game : public GameObject
 {
 public:
-	Menu();
-	~Menu();
+	Game();
+	~Game();
 
 	void handleInput(float dt) override;
 	void update(float dt) override;
 	void render(sf::RenderWindow* hwnd);
 
-	sf::Text text;
-	sf::Font font;
-};
+	AudioManager audioMgr;
 
+	Player player;
+};
