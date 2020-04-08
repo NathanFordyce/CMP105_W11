@@ -13,5 +13,7 @@ public:
 
 	sf::Text text;
 	sf::Font font;
+
+	sf::RenderWindow* window;
 };
 

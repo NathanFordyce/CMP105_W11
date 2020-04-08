@@ -29,7 +29,8 @@ void Menu::update(float dt)
 
 }
 
-void Menu::render(sf::RenderWindow* window)
+void Menu::render(sf::RenderWindow* hwnd)
 {
+	window = hwnd;
 	window->draw(text);
 }

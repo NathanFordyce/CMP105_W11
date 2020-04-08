@@ -9,7 +9,6 @@ Level::Level(sf::RenderWindow* hwnd, Input* in, GameState* gs, AudioManager* aud
 
 	// initialise game objects
 	audio->addMusic("sfx/cantina.ogg", "cantina");
-	audio->addMusic("sfx/cantina.ogg", "cantina");
 
 	pTexture.loadFromFile("gfx/MushroomTrans.png");
 	player.setTexture(&pTexture);

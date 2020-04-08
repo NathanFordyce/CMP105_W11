@@ -189,7 +189,11 @@
     <ClInclude Include="Framework\SoundObject.h" />
     <ClInclude Include="Framework\TileMap.h" />
     <ClInclude Include="Framework\Vector.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="Level.h" />
+    <ClInclude Include="Menu.h" />
+    <ClInclude Include="Pause.h" />
+    <ClInclude Include="Player.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
